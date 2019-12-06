@@ -7,9 +7,13 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE TemplateHaskell            #-}
 {-# LANGUAGE TypeFamilies               #-}
-module Model (module X) where
 
-import Model.User as X
-import Model.Comment as X
-import Model.Email as X
-import Model.Migration as X
+module Model.Email where
+
+import ClassyPrelude.Yesod
+import Database.Persist.Quasi
+
+import Model.User
+
+share [mkPersist sqlSettings]
+    $(persistFileWith lowerCaseSettings "config/models/Email.persistentmodels")
