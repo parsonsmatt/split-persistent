@@ -1,0 +1,5 @@
+Email
+    email Text
+    userId UserId Maybe
+    verkey Text Maybe
+    UniqueEmail email
